@@ -3,15 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>회원가입 페이지</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+    // $( "#form" ).submit(function( event ) {
+            
+    //     alert( "Handler for .submit() called." );
+    //     event.preventDefault();
+    // });
+    function ajax_send(){
+        alert("hello")
+        var data = $('#form').serializeArray();
+        // alert("@ :"+data);
+        var username = $('#username').val(); 
+        var password = $('#password').val(); 
+        var email = $('#email').val(); 
+        var formData = { 
+            username : username, 
+            password : password,
+            email : email
+        };
+        var json_formData = JSON.stringify(formData);
+        alert(json_formData);
+        // console.log("@ :"+JSON.stringify(data));
+        $.ajax({
+            url:'http://localhost:8080/test_join',
+            type:'POST',
+            contentType:'application/json',
+            data:json_formData,
+            success:function(result){
+                alert(result);
+            }
+            // success:function(result){
+            //     alert("hello");
+            //     alert(result);
+            // },error:function(xhr,status, error){
+            //     alert("he222");
+            //     alert(status);
+            // }
+        });
+    }
+</script>
+
 </head>
 <body>
 <h1>회원가입 페이지</h1>
 <hr/>
-<form action="/joinProc" method="post">
-    <input type="text" name="username" placeholder="Username"/> <br/>
-    <input type="password" name="password" placeholder="Password"/> <br/>
-    <input type="email" name="email" placeholder="Email"/> <br/>
-    <button>회원가입</button>
+<form id="form">
+    <input type="text" id="username" placeholder="Username"/> <br/>
+    <input type="password" id="password" placeholder="Password"/> <br/>
+    <input type="email" id="email" placeholder="Email"/> <br/>
+    <!-- <input type="submit" value="Go"> -->
+    <button onclick="ajax_send()">회원가입</button>
 </form>
 </body>
 </html>
