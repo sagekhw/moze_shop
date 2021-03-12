@@ -6,43 +6,43 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script>
-    // $( "#form" ).submit(function( event ) {
-            
-    //     alert( "Handler for .submit() called." );
-    //     event.preventDefault();
-    // });
-    function ajax_send(){
-        alert("hello")
-        var data = $('#form').serializeArray();
-        // alert("@ :"+data);
-        var username = $('#username').val(); 
-        var password = $('#password').val(); 
-        var email = $('#email').val(); 
-        var formData = { 
-            username : username, 
-            password : password,
-            email : email
-        };
-        var json_formData = JSON.stringify(formData);
-        alert(json_formData);
-        // console.log("@ :"+JSON.stringify(data));
-        $.ajax({
-            url:'http://localhost:8080/test_join',
-            type:'POST',
-            contentType:'application/json',
-            data:json_formData,
-            success:function(result){
-                alert(result);
-            }
-            // success:function(result){
-            //     alert("hello");
-            //     alert(result);
-            // },error:function(xhr,status, error){
-            //     alert("he222");
-            //     alert(status);
-            // }
-        });
-    }
+     function ajax_send(){
+            var data = $('#form').serializeArray();
+            // alert("@ :"+data);
+            var username = $('#username').val(); 
+            var password = $('#password').val(); 
+            var email = $('#email').val(); 
+            var formData = { 
+                username : username, 
+                password : password,
+                email : email
+            };
+            var json_formData = JSON.stringify(formData);
+            alert(json_formData);
+            // console.log("@ :"+JSON.stringify(data));
+            $.ajax({
+                url:'http://localhost:8080/test_join',
+                type:'POST',
+                async: false, 
+                contentType:'application/json',
+                data:json_formData,
+                success: function(data){
+                    //정상 요청, 응답 시 처리 작업
+                    alert("success");
+                    alert(data);
+                    console.log(data);
+                },
+                error : function(xhr,status,error) {
+                    alert("error"+status+" / "+error);
+                    //오류 발생 시 처리
+                },
+                complete:function(data,textStatus) {
+                    //작업 완료 후 처리
+                    alert("complete");
+                }
+            });
+
+        }
 </script>
 
 </head>
