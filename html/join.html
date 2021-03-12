@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>회원가입 페이지</title>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script>
      function ajax_send(){
@@ -19,7 +19,6 @@
             };
             var json_formData = JSON.stringify(formData);
             alert(json_formData);
-            // console.log("@ :"+JSON.stringify(data));
             $.ajax({
                 url:'http://localhost:8080/test_join',
                 type:'POST',
@@ -28,9 +27,7 @@
                 data:json_formData,
                 success: function(data){
                     //정상 요청, 응답 시 처리 작업
-                    alert("success");
-                    alert(data);
-                    console.log(data);
+                    console.log(data.username+" / "+data.password);
                 },
                 error : function(xhr,status,error) {
                     alert("error"+status+" / "+error);
