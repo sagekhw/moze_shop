@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 페이지</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="615811997217-prn8q5o8juolfn38efjdot0vb5gni4kg.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+</head>
+<body>
+  <input type="button" id="loginBtn" value="login">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- <script>
+  $("#loginBtn").click(function(){
+    location.href="https://accounts.google.com/o/oauth2/auth?client_id="+
+    "615811997217-prn8q5o8juolfn38efjdot0vb5gni4kg.apps.googleusercontent.com"+
+    "&redirect_uri="+
+    "http://localhost/redirect.html" +
+    "&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email&approval_prompt=force&access_type=offline";
+  });
+  </script> -->
+  <script>
+    $("#loginBtn").click(function(){
+      location.href="https://accounts.google.com/o/oauth2/auth?client_id="+
+      "615811997217-prn8q5o8juolfn38efjdot0vb5gni4kg.apps.googleusercontent.com"+
+      "&redirect_uri="+
+      "http://localhost/moze_shop/html/redirect.html" +
+      "&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email&approval_prompt=force&access_type=offline";
+    });
+    </script> 
+
+<h1>로그인 페이지</h1>
+<hr/>
+<script>
+    var googleUser = {};
+    var startApp = function() {
+      gapi.load('auth2', function(){
+        // Retrieve the singleton for the GoogleAuth library and set up the client.
+        auth2 = gapi.auth2.init({
+          client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+          cookiepolicy: 'single_host_origin',
+          // Request scopes in addition to 'profile' and 'email'
+          //scope: 'additional_scope'
+        });
+        attachSignin(document.getElementById('customBtn'));
+      });
+    };
+  
+    function attachSignin(element) {
+      console.log(element.id);
+      auth2.attachClickHandler(element, {},
+          function(googleUser) {
+            document.getElementById('name').innerText = "Signed in: " +
+                googleUser.getBasicProfile().getName();
+          }, function(error) {
+            alert(JSON.stringify(error, undefined, 2));
+          });
+    }
+    </script>
+    <style type="text/css">
+      #customBtn {
+        display: inline-block;
+        background: white;
+        color: #444;
+        width: 190px;
+        border-radius: 5px;
+        border: thin solid #888;
+        box-shadow: 1px 1px 1px grey;
+        white-space: nowrap;
+      }
+      #customBtn:hover {
+        cursor: pointer;
+      }
+      span.label {
+        font-family: serif;
+        font-weight: normal;
+      }
+      span.icon {
+        background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        width: 42px;
+        height: 42px;
+      }
+      span.buttonText {
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 42px;
+        padding-right: 42px;
+        font-size: 14px;
+        font-weight: bold;
+        /* Use the Roboto font that is loaded in the <head> */
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
+    </head>
+    <body>
+    <!-- In the callback, you would hide the gSignInWrapper element on a
+    successful sign in -->
+    <div id="gSignInWrapper">
+      <span class="label">Sign in with:</span>
+      <div id="customBtn" class="customGPlusSignIn">
+        <span class="icon"></span>
+        <span class="buttonText">Google</span>
+      </div>
+    </div>
+    <div id="name"></div>
+    <script>startApp();</script>
+<!-- 시큐리티는 x-www-form-url-encoded 타입만 인식 -->
+<!-- <form id="form">
+    <input type="text" id="username" />
+    <input type="password" id="password" />
+    <button  onclick="ajax_send()">로그인</button>
+</form>
+
+<br />
+
+<h1>Social Login</h1>
+<br /> -->
+<!-- javascript:; 는 클릭해도 반응을 없게 하는 키워드 -->
+<!-- <a href="/oauth2/authorization/google" >
+    <img src="https://pngimage.net/wp-content/uploads/2018/06/google-login-button-png-1.png"
+         alt="google" width="357px" height="117px">
+</a>
+<br />
+<a href="/oauth2/authorization/facebook">
+    <img src="https://pngimage.net/wp-content/uploads/2018/06/login-with-facebook-button-png-transparent-1.png"
+         alt="facebook" width="357px" height="117px">
+</a>
+<br />
+
+<a href="/oauth2/authorization/naver">
+    <img src="https://blogfiles.pstatic.net/MjAyMDA4MDRfMzMg/MDAxNTk2NTEyOTY4MDMx.vhXHCulffijGUnvlaBR2jW4__Lkz8R3ZTaEDcTeNV2gg.Wt_HNl_zktUJUMrYGkVmqJ-PhxKv_s4A7gG1uPKMZaQg.PNG.getinthere/naver_button.png"
+         alt="facebook" width="357px" height="50px">
+</a>
+<br /> -->
+
+
+</body>
+</html>
