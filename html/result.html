@@ -10,7 +10,6 @@
 <script>
     // 주소 창에 있는 parameter를 취득한다.
     function getParameter(name){
-        alert("hel");
         var link = document.location.href;
     
         var list = location.search.substring(1).split('&');
@@ -24,7 +23,11 @@
         }
         return null;
     }
-    alert(getParameter('access_token')+getParameter('refresh_token')+getParameter('token_type')+getParameter('id_token'));
+    alert(getParameter('access_token'));
+    alert(getParameter('refresh_token'));
+    alert(getParameter('token_type'));
+    alert(getParameter('id_token'));
+    
     // 파라미터 code를 취득하고 URL 디코딩해서 input code에 넣는다.
     // $("input[name=code]").val(decodeURIComponent(getParameter('code')));
     </script>
