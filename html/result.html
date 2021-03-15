@@ -42,4 +42,23 @@
   "token_type": "Bearer",
   "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg0NjJhNzFkYTRmNmQ2MTFmYzBmZWNmMGZjNGJhOWMzN2Q2NWU2Y2QiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNjE1ODExOTk3MjE3LXBybjhxNW84anVvbGZuMzhlZmpkb3QwdmI1Z25pNGtnLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNjE1ODExOTk3MjE3LXBybjhxNW84anVvbGZuMzhlZmpkb3QwdmI1Z25pNGtnLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA2NzQ2NTgyNTEwMDg0MDc2NTU5IiwiZW1haWwiOiJzYWdla2h3QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiYXozWmN1dWh3WW5maEdGOGw3b0VNdyIsImlhdCI6MTYxNTcyOTYzOSwiZXhwIjoxNjE1NzMzMjM5fQ.pc4rmwEGUCVU7u-6ZU1vaS3M_KaVtTDHvbLPCGnhxdOP1y-zcJ3pv-l3A8t-H_-WHs8hY9imFRR86Y9BT3n2uPmMubGt4KYaGxfjCJFes9ZHirCpwCLPCUcCJC3oRwNb38Bg8hjcigPct4BVmT4zQSZJ8JeFumc0XPNV9k-QhVGtroEnueCnMFaI9yeJXsqeWLapCzIn8LudOxxd2WWmoGIE7I2v8tai4iuZlpo5HoN7dm0Hmu76zbhcGHhCTDaWcvyW8VaCdMGyDu9MUU40KWhgf0qxIsEIio52bZgTFknQN0TGzoSgbixtr8OIhPYZHxbz2pUfT8BNlroCTOBEQQ"
 } 
+
+@GetMapping("/redirect")
+    public ModelAndView getRedirect( HttpServletRequest request) throws IOException {
+        System.out.println("GET : "+request.getParameter("code"));
+        System.out.println("GET : "+request.getParameter("scope"));
+        System.out.println("GET : "+request.getParameter("authuser"));
+        System.out.println("GET : "+request.getParameter("prompt"));
+        Token token = new Token();
+        token = createPost(request.getParameter("code"));
+        String strUrl = "http://localhost/moze_shop/html/result.html";
+        ModelAndView modelAndView = new ModelAndView("redirect:" + strUrl);
+        modelAndView.addObject("access_token", token.getAccess_token());
+        modelAndView.addObject("expires_in", token.getExpires_in());
+        modelAndView.addObject("refresh_token", token.getRefresh_token());
+        modelAndView.addObject("scope", token.getScope());
+        modelAndView.addObject("token_type", token.getToken_type());
+        modelAndView.addObject("id_token", token.getId_token());
+        return modelAndView;
+    }
    -->
