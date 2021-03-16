@@ -32,12 +32,8 @@
                 return null;
             }
             function init(){
-                alert(getParameter("name")+" / "+getParameter("email"));
-                $("#user_name").val("zzzz");
                 if(getParameter("name") != null){
-                    // document.getElementById("user_name").value = getParameter("name");
-                    $("#user_name").val("zzzz");
-                    // document.getElementById("user_name").value = "hello";
+                    $("#user_name").val(getParameter("name"));
                 }
                 if(getParameter("email") != null){
                     document.getElementById("input_email").value = getParameter("email");
@@ -781,10 +777,7 @@
                 <div class="wrap-space"></div>
             </div>
         </div>
-        <script>
-            // $("#user").val("Glenn name");
-            // $("#user_name").val("zzzz");
-        </script>
+        
     </body>
 </html>
 
