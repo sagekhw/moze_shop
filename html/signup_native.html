@@ -17,26 +17,12 @@
     <body>
         <script>
             // 주소 창에 있는 parameter를 취득한다.
-            function getParameter(param){
+            function getParameter(str_param){
                 const queryString = window.location.search;
                 const urlParams = new URLSearchParams(queryString);
-                alert(queryString+" / "+urlParams);
-                const name = urlParams.get('name');
-                const email = urlParams.get('email');
-				alert(name+" / "+email);
-                // var link = decodeURIComponent(document.location.href);
-                // alert("@@ : "+link);
-                // var list = location.search.substring(1).split('&');
-                // for(var i=0;i<list.length;i++){
-                //     var data = list[i].split('=');
-                //     if(data.length === 2){
-                //         if(data[0] === name){
-                //             return data[1];
-                //         }
-                //     }
-                // }
-                // return null;
-
+                const param = urlParams.get(str_param);
+                return param;
+                
             }
             function init(){
                 if(getParameter("name") != null){
@@ -48,12 +34,7 @@
             }
             window.onload=function(){
                 // 페이지가 로딩된 후 실행해야 되는 코드를 추가한다.
-                // init();
-                const queryString = window.location.search;
-                const urlParams = new URLSearchParams(queryString);
-                const name = urlParams.get('name');
-                const email = urlParams.get('email');
-				alert(name+" / "+email);
+                init();
             }
 
         </script>
