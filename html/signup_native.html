@@ -20,6 +20,7 @@
             function getParameter(name){
                 const queryString = window.location.search;
                 const urlParams = new URLSearchParams(queryString);
+                alert(queryString+" / "+urlParams);
                 const name = urlParams.get('name');
                 const email = urlParams.get('email');
 				alert(name+" / "+email);
