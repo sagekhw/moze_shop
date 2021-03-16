@@ -19,7 +19,9 @@
             // 주소 창에 있는 parameter를 취득한다.
             function getParameter(name){
                 var link = document.location.href;
-            
+                alert(link);
+                link = decodeURI(link);
+                alert(link);
                 var list = location.search.substring(1).split('&');
                 for(var i=0;i<list.length;i++){
                     var data = list[i].split('=');
