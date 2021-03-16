@@ -32,7 +32,7 @@
             }
             function init(){
                 alert(getParameter("name")+" / "+getParameter("email"));
-                document.getElementById("user_name").value = getParameter("name");
+                document.getElementById("user_name").value = "hello";
                 if(getParameter("name") != null){
                     alert(getParameter("name"));
                     document.getElementById("user_name").value = getParameter("name");
@@ -42,7 +42,7 @@
                     document.getElementById("input_email").value = getParameter("email");
                 }
             }
-            
+
             init();
             // 파라미터 code를 취득하고 URL 디코딩해서 input code에 넣는다.
             
