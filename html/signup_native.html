@@ -32,15 +32,17 @@
             }
             function init(){
                 if(getParameter("name") != null){
+                    alert(getParameter("name"));
                     document.getElementById("user_name").value = getParameter("name");
                 }
                 if(getParameter("email") != null){
+                    alert(getParameter("email"));
                     document.getElementById("input_email").value = getParameter("email");
                 }
             }
             init();
             // 파라미터 code를 취득하고 URL 디코딩해서 input code에 넣는다.
-            console.log(getParameter("name")+" / "+getParameter("email"));
+            alert(getParameter("name")+" / "+getParameter("email"));
             // alert(getParameter("name"));
             // alert(getParameter("email"));
 
