@@ -14,7 +14,25 @@
         <link rel="stylesheet" type="text/css" href="../css/signup_native.css" />
     </head>
     <body>
-        
+        <script>
+            // 주소 창에 있는 parameter를 취득한다.
+            function getParameter(name){
+                var link = document.location.href;
+            
+                var list = location.search.substring(1).split('&');
+                for(var i=0;i<list.length;i++){
+                    var data = list[i].split('=');
+                    if(data.length === 2){
+                        if(data[0] === name){
+                            return data[1];
+                        }
+                    }
+                }
+                return null;
+            }
+            // 파라미터 code를 취득하고 URL 디코딩해서 input code에 넣는다.
+            alert(getParameter(name));
+            </script>
         <div class="container">
             <div class="wrap">
                 <div class="wrap-space"></div>
