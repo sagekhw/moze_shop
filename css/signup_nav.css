@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+}
+body {
+    background: #f2f2f2;
+    width: 100%;
+    height: 100%;
+    min-width: 1000px;
+    overflow:scroll;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    /* border : 1px solid black; */
+}
+.wrap{
+    width: 500px;
+    height: 100%;
+    min-height: 600px;
+    /* border : 1px solid black; */
+}
+
+.wrap-content{
+    width: 500px;
+    height: 100%;
+    /* border : 1px solid black; */
+}
+/* 공백 */
+.wrap-space{ 
+    width: 500px;
+    height: 0%;
+    /* border : 1px solid black; */
+}
+.content-header{
+    width: 500px;
+    min-height: 10%;
+    padding-top: 100px;
+    text-align: center;
+    
+    /* border : 1px solid red; */
+}
+.content-header > a {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-decoration: none;
+    color: #a83e3e;
+    font-weight: 700;
+    font-size: 100px;
+}
+.content-body{
+    width: 500px;
+    height: 70%;
+    /* border : 1px solid red; */
+}
+.content-footer{
+    width: 500px;
+    height: 20%;
+    /* border : 1px solid red; */
+}
+.btn_common_style{
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #f2f2f2;
+    border-radius: 4px;
+}
+.btn_my_signup{
+    width: 100%;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color:  #535050;
+    cursor: pointer;
+}
+.native_wrap{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #999494;
+}
+.sns_wrap{
+    padding-top: 20px;
+}
+.sns_wrap > div{
+    width: 100%;
+    display: flex;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #f2f2f2;
+    border-radius: 4px;
+    
+}
+.sns_wrap > div > img{
+    width: 10%;
+    border: 0;
+    outline: 0;
+}
+.btn_naver_signup{
+    width: 90%;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    border: 0;
+    outline: 0;
+    background-color: #3fc413;
+    cursor: pointer;
+}
+.btn_kakao_signup{
+    width: 90%;
+    font-size: 19px;
+    font-weight: 700;
+    color: #535050;
+    border: 0;
+    outline: 0;
+    background-color:  #F7E600;
+    cursor: pointer;
+}
+.btn_google_signup{
+    width: 90%;
+    font-size: 19px;
+    font-weight: 700;
+    color: #535050;
+    border: 0;
+    outline: 0;
+    background-color: white;
+    cursor: pointer;
+}
+.btn_facebok_signup{
+    width: 90%;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    border: 0;
+    outline: 0;
+    background-color: #3b5998;
+    cursor: pointer;
+}
+.naver_wrap{
+    background-color: #2DB400;
+}
+.kakao_wrap{
+    background-color: #F7E600;
+}
+.google_wrap{
+    background-color: white;
+}
+.facebook_wrap{
+    background-color: #3b5998;
+}

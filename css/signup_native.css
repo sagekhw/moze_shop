@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+}
+body {
+    background: #f2f2f2;
+    width: 100%;
+    height: 100%;
+    min-width: 1000px;
+    overflow:scroll;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    /* border : 1px solid black; */
+}
+.wrap{
+    width: 500px;
+    height: 100%;
+    min-height: 600px;
+    /* border : 1px solid black; */
+}
+
+.wrap-content{
+    width: 500px;
+    height: 80%;
+    /* border : 1px solid black; */
+}
+/* 공백 */
+.wrap-space{ 
+    width: 500px;
+    height: 0%;
+    /* border : 1px solid black; */
+}
+.content-header{
+    width: 500px;
+    min-height: 10%;
+    padding-top: 50px;
+    text-align: center;
+    
+    /* border : 1px solid red; */
+}
+.content-header > a {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+    font-size: 80px;
+    text-decoration: none;
+    color: #a83e3e;
+    font-weight: 700;
+}
+.content-body{
+    width: 500px;
+    height: 60%;
+    /* border : 1px solid red; */
+}
+.content-footer{
+    width: 500px;
+    height: 20%;
+    /* border : 1px solid red; */
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #c5d1c1;
+    border-radius: 4px;
+}
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #c5d1c1;
+    border-radius: 4px;
+}
+input[type=submit] {
+    width: 100%;
+    background-color: #c5d1c1;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    cursor: pointer;
+    float: center;
+    font-size: 20px;
+}
+.info_basic{
+    padding: 10px 0px;
+}
+.info_detail{
+    padding-top: 30px;
+}
+#gender{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #c5d1c1;
+    border-radius: 4px;
+}
+.input_birthday {
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+#signup_month{
+    width: 33%;
+    
+}
+.input_birthday > input[type=text] {
+    width: 33%;            
+}
+.check_email{
+    display: flex;
+    justify-content: space-between;
+}
+.check_email > input[type=text]{
+    width: 70%;
+}
+.check_email > button{
+    width: 27%;
+    cursor: pointer;
+    
+}
+.input_pd_style{
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #c5d1c1;
+    border-radius: 4px;
+}
+.nationNo{ width: 100%; }
+.input_mobilephone_number_container{ display: flex; justify-content: space-between;}
+.input_mobilephone_number_container > .input_mobile_phone_number{
+    width: 70%;
+}
+.input_mobilephone_number_container >  button{
+    width: 27%;
+    cursor: pointer;
+}
+.input_certification_number{
+    width: 100%;
+}
+.pd_top_10{
+    padding-top: 10px;
+}
