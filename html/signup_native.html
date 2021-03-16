@@ -6,15 +6,15 @@
         <title>쇼핑몰</title>
         <!-- google font -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="shortcut icon" href="/img/logo.ico">
-        <link rel="icon" href="/img/logo.ico">
+        <link rel="shortcut icon" href="../img/logo.ico">
+        <link rel="icon" href="../img/logo.ico">
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
         <!-- css -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/signup_native.css" />
     </head>
     <body>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script>
             // 주소 창에 있는 parameter를 취득한다.
             function getParameter(name){
@@ -31,26 +31,22 @@
                 }
                 return null;
             }
-            document.getElementById("user_name").value = "hello";
-            document.getElementById("input_email").value = "hello";
             function init(){
                 alert(getParameter("name")+" / "+getParameter("email"));
-                document.getElementById("user_name").value = "hello";
+                $("#user_name").val("zzzz");
                 if(getParameter("name") != null){
-                    alert(getParameter("name"));
-                    document.getElementById("user_name").value = getParameter("name");
+                    // document.getElementById("user_name").value = getParameter("name");
+                    $("#user_name").val("zzzz");
+                    // document.getElementById("user_name").value = "hello";
                 }
                 if(getParameter("email") != null){
-                    alert(getParameter("email"));
                     document.getElementById("input_email").value = getParameter("email");
                 }
             }
-
-            init();
-            // 파라미터 code를 취득하고 URL 디코딩해서 input code에 넣는다.
-            
-            // alert(getParameter("name"));
-            // alert(getParameter("email"));
+            window.onload=function(){
+                // 페이지가 로딩된 후 실행해야 되는 코드를 추가한다.
+                init();
+            }
 
         </script>
         <div class="container">
@@ -785,6 +781,10 @@
                 <div class="wrap-space"></div>
             </div>
         </div>
+        <script>
+            // $("#user").val("Glenn name");
+            // $("#user_name").val("zzzz");
+        </script>
     </body>
 </html>
 
