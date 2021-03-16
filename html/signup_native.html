@@ -17,7 +17,7 @@
     <body>
         <script>
             // 주소 창에 있는 parameter를 취득한다.
-            function getParameter(name){
+            function getParameter(param){
                 const queryString = window.location.search;
                 const urlParams = new URLSearchParams(queryString);
                 alert(queryString+" / "+urlParams);
