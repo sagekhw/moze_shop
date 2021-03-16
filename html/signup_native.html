@@ -18,11 +18,9 @@
         <script>
             // 주소 창에 있는 parameter를 취득한다.
             function getParameter(name){
-                var link = document.location.href;
-                link = decodeURI(link);
+                var link = decodeURI(document.location.href);
                 alert("@@ : "+link);
                 var list = location.search.substring(1).split('&');
-                alert("!! : "+list);
                 for(var i=0;i<list.length;i++){
                     var data = list[i].split('=');
                     if(data.length === 2){
