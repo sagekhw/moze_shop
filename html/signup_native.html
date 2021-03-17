@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,31 +13,10 @@
         <!-- css -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/signup_native.css" />
+        <script src="../js/signup_native.js"></script>
     </head>
     <body>
-        <script>
-            // 주소 창에 있는 parameter를 취득한다.
-            function getParameter(str_param){
-                const queryString = window.location.search;
-                const urlParams = new URLSearchParams(queryString);
-                const param = urlParams.get(str_param);
-                return param;
-                
-            }
-            function init(){
-                if(getParameter("name") != null){
-                    $("#user_name").val(getParameter("name"));
-                }
-                if(getParameter("email") != null){
-                    document.getElementById("input_email").value = getParameter("email");
-                }
-            }
-            window.onload=function(){
-                // 페이지가 로딩된 후 실행해야 되는 코드를 추가한다.
-                init();
-            }
-
-        </script>
+        
         <div class="container">
             <div class="wrap">
                 <div class="wrap-space"></div>
@@ -46,64 +25,82 @@
                         <a href="#"> MOZE</a>
                     </div>
                     <div class="content-body">
-                        <form>
+                        <!-- <form> -->
                             <div class="info_basic">
-                                <div class="pd_top_10">
+                                <div class="pd_top_20">
                                     <h3>아이디</h3>
-                                    <input type="text" id="user" placeholder="ID">
+                                    <div class="check_user" id="check_user">
+                                        <input type="text" id="user" placeholder="ID">
+                                        <button id="user_check" class="input_pd_style" onclick="id_check()" value="중복 인증">ID 중복확인</button>
+                                    </div>
+                                    <span class="inconsistency">아이디가 입력되지 않았습니다.</span>
                                 </div>
-                                <div class="pd_top_10">
+                                <div class="pd_top_20">
                                     <h3>비밀번호</h3>
                                     <input type="password" id="password" placeholder="PASSWORD">
+                                    <span class="inconsistency">비밀번호가 입력되지 않았습니다.</span>
                                 </div>
-                                <div class="pd_top_10">
+                                <div class="pd_top_20">
                                     <h3>비밀번호 재확인</h3>
                                     <input type="password" id="password_check" placeholder="PASSWORD">
+                                    <span class="inconsistency">비밀번호가 일치하지 않았습니다.</span>
                                 </div>
                             </div>
                             <div class="info_detail">
-                                <div class="pd_top_10">
+                                <div class="pd_top_20">
                                     <h3>이름</h3>
                                     <input type="text" id="user_name" placeholder="이름">
+                                    <span class="inconsistency">이름이 입력되지 않았습니다.</span>
                                 </div>
-                                <div class="pd_top_10">
+                                <div class="pd_top_20">
                                     <h3>생년월일</h3>
                                     <div class="input_birthday">
-                                        <input type="text" id="signup_year" placeholder="년(4자)">
-                                        <select id="signup_month" class="input_pd_style" >
-                                            <option value="">월</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
-                                        <input type="text" id="signup_day" placeholder="일">
+                                        <div>
+                                            <input type="text" id="signup_year" placeholder="년(4자)">
+                                            <span class="inconsistency">년도가 입력되지 않았습니다.</span>
+                                        </div>
+                                        <div>
+                                            <select id="signup_month" class="input_pd_style" >
+                                                <option value="">월</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                            <span class="inconsistency">월이 입력되지 않았습니다.</span>
+                                        </div>
+                                        <div>
+                                            <input type="text" id="signup_day" placeholder="일">
+                                            <span class="inconsistency">일이 입력되지 않았습니다.</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="pd_top_10">
+                                <div class="pd_top_20">
                                     <h3>성별</h3>
                                     <select id="gender">
-                                        <option value="성별">성별</option>
+                                        <option value="">성별</option>
                                         <option value="남성">남성</option>
                                         <option value="여성">여성</option>
-                                        <option value="선택안함">선택안함</option>
+                                        <!-- <option value="선택안함">선택안함</option> -->
                                     </select>
+                                    <span class="inconsistency">성별이 선택되지 않았습니다.</span>
                                     <!-- <input type="text" id="user_name" placeholder="성별"> -->
                                 </div>
-                                <div class="pd_top_10">
+                                <div class="pd_top_20">
                                     <h3>본인 확인 메일</h3>
-                                    <div class="check_email">
+                                    <div class="check_email" id="check_email">
                                         <input type="text" id="input_email" placeholder="본인 확인 메일">
-                                        <button id="email_check" class="input_pd_style" value="메일 인증">메일 인증</button>
+                                        <button id="email_check" class="input_pd_style" onclick="mail_check()" value="메일 인증">메일 인증</button>
                                     </div>
+                                    <span class="inconsistency">메일인증이 되지 않았습니다.</span>
                                     
                                 </div>
                                 <div class="info_detail">
@@ -753,16 +750,17 @@
                                                 홍콩 +852
                                             </option>
                                         </select>
-                                        <div class="input_mobilephone_number_container">
-                                            <input type="text" id="" class="input_mobile_phone_number input_pd_style" placeholder="전화번호 입력">
-                                            <button  class="button_mobile_phone_number input_pd_style" value="인증번호 받기">인증번호 받기</button>
+                                        <div class="input_mobilephone_number_container" id="mobilephone_number_container" >
+                                            <input type="text" id="mobliephone_number" class="input_mobile_phone_number input_pd_style" placeholder="전화번호 입력">
+                                            <button  class="button_mobile_phone_number input_pd_style" onclick="mobilenumber_check()" value="인증번호 받기">인증번호 받기</button>
                                         </div>
-                                        <input type="text" id="" class="input_certification_number input_pd_style" placeholder="인증번호 입력하세요">
+                                        <input type="text" id="mobliephone_number_check" class="input_certification_number input_pd_style" placeholder="인증번호 입력하세요">
+                                        <span class="inconsistency">휴대전화 인증이 되지 않았습니다.</span>
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" value="Sign up">
-                        </form>
+                            <input type="submit" id="signup" onclick="signup()" value="Sign up">
+                        <!-- </form> -->
                     </div>
                     <div class="content-footer">
                     </div>

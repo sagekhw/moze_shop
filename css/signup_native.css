@@ -87,7 +87,7 @@ input[type=submit] {
     background-color: #c5d1c1;
     color: white;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 28px 0;
     box-sizing: border-box;
     border-radius: 4px;
     cursor: pointer;
@@ -95,7 +95,7 @@ input[type=submit] {
     font-size: 20px;
 }
 .info_basic{
-    padding: 10px 0px;
+    padding: 10px 0px 0px 0px;
 }
 .info_detail{
     padding-top: 30px;
@@ -115,12 +115,32 @@ input[type=submit] {
 }
 
 #signup_month{
-    width: 33%;
+    width: 100%;
+    padding: 11px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #c5d1c1;
+    border-radius: 4px;
     
 }
-.input_birthday > input[type=text] {
+.check_user{
+    display: flex;
+    justify-content: space-between;
+}
+.check_user > input[type=text]{
+    width: 70%;
+}
+.check_user > button{
+    width: 27%;
+    cursor: pointer;
+}
+.input_birthday > div{
+/* .input_birthday > input[type=text] { */
     width: 33%;            
 }
+/* .input_birthday > .signup_month{
+    width: 100%;
+} */
 .check_email{
     display: flex;
     justify-content: space-between;
@@ -131,7 +151,6 @@ input[type=submit] {
 .check_email > button{
     width: 27%;
     cursor: pointer;
-    
 }
 .input_pd_style{
     padding: 12px 20px;
@@ -152,6 +171,11 @@ input[type=submit] {
 .input_certification_number{
     width: 100%;
 }
-.pd_top_10{
-    padding-top: 10px;
+.inconsistency{
+    display: none;
+    color: #a83e3e;
+    font-size: small;
+}
+.pd_top_20{
+    padding-top: 20px;
 }
