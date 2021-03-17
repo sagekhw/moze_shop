@@ -28,6 +28,10 @@
       "http://localhost:8080/redirect" +
       "&response_type=code&scope=email profile openid&approval_prompt=force&access_type=offline";
     });
+    
+    function move_signup_page() {
+      window.location.replace("http://localhost/moze_shop/html/signup_nav.html"); 
+    }
   </script> 
         <div class="container">
           <div class="wrap">
@@ -48,7 +52,7 @@
                           </div>
                           <input type="submit"  value="로그인">
                       </form>
-                          <button class="btn_sign_up" value="Sign UP" onclick="myFunction('hello')">회원가입</button>
+                          <button class="btn_sign_up" value="Sign UP" onclick="move_signup_page('hello')">회원가입</button>
                   </div>
                   <div class="content-footer">
                   </div>
