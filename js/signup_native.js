@@ -40,7 +40,7 @@ function init() {
     }
 }
 class userinfo {
-    constructor(user, username, password, signup_date, gender, email, nationNo, mobliephone_number) {
+    constructor(user, username, password, signup_date, gender, email, nationNo, mobilephone_number) {
         this.user = user;
         this.username = username;
         this.password = password;
@@ -48,7 +48,7 @@ class userinfo {
         this.gender = gender;
         this.email = email;
         this.nationNo = nationNo;
-        this.mobliephone_number = mobliephone_number;
+        this.mobilephone_number = mobilephone_number;
     }
 }
 
@@ -75,7 +75,7 @@ function check(re, taget, value, message) { //정규화데이터,아이템 id,�
             }
             return true;
         } else {
-            if (taget == "mobliephone_number_check") {
+            if (taget == "mobilephone_number_check") {
                 alert("2 : " + taget + " / " + value + " / " + message);
             }
             $("#" + taget + " + .inconsistency").css("display", "block");
@@ -141,7 +141,7 @@ function validity_check(taget, value) {
                 return 0;
             }
         }
-        if (taget == "mobliephone_number_check") {
+        if (taget == "mobilephone_number_check") {
             flag = true;
             if (!check(VALIDITY_MOBILENUMBER_RULE, taget, value, VALIDITY_MOBILENUMBER_MSG)) {
                 flag = false;
@@ -167,7 +167,7 @@ function signup() {
     var gender = $("#gender").val();
     var input_email = $("#input_email").val();
     // var nationNo = $("#nationNo").val();
-    var mobliephone_number = $("#mobliephone_number").val();
+    var mobilephone_number = $("#mobilephone_number").val();
     // alert(input_email);
     validity_check("check_user", user);
     validity_check("user_name", username);
@@ -178,7 +178,7 @@ function signup() {
     validity_check("signup_day", signup_day);
     validity_check("gender", gender);
     validity_check("check_email", input_email);
-    validity_check("mobliephone_number_check", mobliephone_number);
+    validity_check("mobilephone_number_check", mobilephone_number);
 
     if (flag && ID_CHECK && MAIL_CHECK && MOBILENUMBER_CHECK) {
         alert("성공");
