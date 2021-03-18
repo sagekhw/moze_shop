@@ -1,6 +1,6 @@
 const VALIDITY_ID_MSG = "아이디는 4~12자의 대소문자와 숫자로만 입력 가능합니다.";
 const VALIDITY_PW_MSG = "패스워드는 최소 8 자 및 최대 10 자, 대문자 하나 이상, 소문자 하나, 숫자 하나 및 특수 문자 하나 이상";
-const VALIDITY_NAME_MSG = "이름은 2자 이상의 영문 및 한글로 작성되어야 합니다.";
+const VALIDITY_NAME_MSG = "이름은 2자 이상의 영문 및 한글로 공백 없이 작성되어야 합니다.";
 const VALIDITY_YEAR_MSG = "년도가 입력되지 않았습니다.";
 const VALIDITY_MONTH_MSG = "월이 입력되지 않았습니다.";
 const VALIDITY_DAY_MSG = "일이 입력되지 않았습니다.";
@@ -40,11 +40,11 @@ function init() {
     }
 }
 class userinfo {
-    constructor(user, username, password, signup_date, gender, email, nationNo, mobilephone_number) {
-        this.user = user;
+    constructor(user, username, password, birthday, gender, email, nationNo, mobilephone_number) {
+        this.user_id = user;
         this.username = username;
         this.password = password;
-        this.signup_date = signup_date;
+        this.birthday = birthday;
         this.gender = gender;
         this.email = email;
         this.nationNo = nationNo;
@@ -65,6 +65,43 @@ function mail_check(re, taget, value, message) {
 function mobilenumber_check(re, taget, value, message) {
     alert("mobilenumber_check");
     MOBILENUMBER_CHECK = true;
+}
+function ajax_signup(userinfo){
+    var formData = { 
+        userid : userinfo.user_id,
+        username : userinfo.username, 
+        password : userinfo.password,
+        email : userinfo.email,
+        gender : userinfo.gender,
+        nation_no : userinfo.nationNo,
+        birthday : userinfo.birthday,
+        mobile_number : userinfo.mobilephone_number,
+        
+    };
+    var json_formData = JSON.stringify(formData);
+    console.log(json_formData);
+    $.ajax({
+        url:'http://localhost:8080/google_signup',
+        type:'POST',
+        async: false, 
+        contentType:'application/json',
+        data:json_formData,
+        success: function(data){
+            //정상 요청, 응답 시 처리 작업
+            alert("success");
+            alert(data);
+            console.log(data);
+        },
+        error : function(xhr,status,error) {
+            alert("error"+status+" / "+error);
+            //오류 발생 시 처리
+        },
+        complete:function(data,textStatus) {
+            //작업 완료 후 처리
+            alert("complete");
+        }
+    });
+
 }
 
 function check(re, taget, value, message) { //정규화데이터,아이템 id,메세지
@@ -166,7 +203,7 @@ function signup() {
     var signup_day = $("#signup_day").val();
     var gender = $("#gender").val();
     var input_email = $("#input_email").val();
-    // var nationNo = $("#nationNo").val();
+    var nationNo = $("#nationNo").val();
     var mobilephone_number = $("#mobilephone_number").val();
     // alert(input_email);
     validity_check("check_user", user);
@@ -179,9 +216,18 @@ function signup() {
     validity_check("gender", gender);
     validity_check("check_email", input_email);
     validity_check("mobilephone_number_check", mobilephone_number);
-
+    
+    var str = signup_year+"-"+signup_month+"-"+signup_day;
+    var birthday = new Date(str);
+    var request = new userinfo(user,username,password,birthday
+                                ,gender,input_email,nationNo,mobilephone_number);
+    // alert(request.email);
+    
+    ajax_signup(request);
+    /*
     if (flag && ID_CHECK && MAIL_CHECK && MOBILENUMBER_CHECK) {
         alert("성공");
+
     } else {
         if (!ID_CHECK) {
             alert("ID_CHECK 실패");
@@ -194,7 +240,9 @@ function signup() {
         }
         alert("실패");
     }
+    */
 }
+
 window.onload = function() {
     // 페이지가 로딩된 후 실행해야 되는 코드를 추가한다.
     init();
