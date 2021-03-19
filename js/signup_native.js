@@ -90,7 +90,7 @@ function ajax_signup(userinfo){
             //정상 요청, 응답 시 처리 작업
             alert("success");
             if(data){
-                // move_login_page();
+                move_login_page();
             }else{
                 alert("회원가입 실패 관리자에게 문의 하세요");
             }
