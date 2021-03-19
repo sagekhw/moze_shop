@@ -81,7 +81,7 @@ function ajax_signup(userinfo){
     var json_formData = JSON.stringify(formData);
     console.log(json_formData);
     $.ajax({
-        url:'http://localhost:8080/google_signup',
+        url:'http://localhost:8080/signup',
         type:'POST',
         async: false, 
         contentType:'application/json',
