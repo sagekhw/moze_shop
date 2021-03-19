@@ -89,8 +89,13 @@ function ajax_signup(userinfo){
         success: function(data){
             //정상 요청, 응답 시 처리 작업
             alert("success");
-            alert(data);
-            console.log(data);
+            if(data){
+                move_login_page();
+            }else{
+                alert("회원가입 실패 관리자에게 문의 하세요");
+            }
+            // alert(data);
+            // console.log(data);
         },
         error : function(xhr,status,error) {
             alert("error"+status+" / "+error);
@@ -98,7 +103,7 @@ function ajax_signup(userinfo){
         },
         complete:function(data,textStatus) {
             //작업 완료 후 처리
-            alert("complete");
+            // alert("complete");
         }
     });
 
@@ -223,11 +228,11 @@ function signup() {
                                 ,gender,input_email,nationNo,mobilephone_number);
     // alert(request.email);
     
-    ajax_signup(request);
-    /*
+    
+    
     if (flag && ID_CHECK && MAIL_CHECK && MOBILENUMBER_CHECK) {
-        alert("성공");
-
+        ajax_signup(request)
+        
     } else {
         if (!ID_CHECK) {
             alert("ID_CHECK 실패");
@@ -240,7 +245,30 @@ function signup() {
         }
         alert("실패");
     }
-    */
+    
+}
+function move_login_page(){
+    location.replace("http://localhost:8080/login_after_signup")
+    // $.ajax({
+    //     url:'http://localhost:8080/login_after_signup',
+    //     type:'GET',
+    //     async: false, 
+    //     // contentType:'application/json',
+    //     // data:json_formData,
+    //     success: function(){
+    //         //정상 요청, 응답 시 처리 작업
+    //         alert("success");
+           
+    //     },
+    //     error : function(xhr,status,error) {
+    //         alert("error"+status+" / "+error);
+    //         //오류 발생 시 처리
+    //     },
+    //     complete:function(data,textStatus) {
+    //         //작업 완료 후 처리
+    //         // alert("complete");
+    //     }
+    // });
 }
 
 window.onload = function() {
