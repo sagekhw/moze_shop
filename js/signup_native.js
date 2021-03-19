@@ -248,7 +248,7 @@ function signup() {
     
 }
 function move_login_page(){
-    location.replace("http://localhost:8080/login_after_signup")
+    location.replace("http://localhost:8080/login_after_signup");
     // $.ajax({
     //     url:'http://localhost:8080/login_after_signup',
     //     type:'GET',
