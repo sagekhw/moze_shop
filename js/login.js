@@ -82,12 +82,12 @@ function login(){
         data:json_formData,
         success: function(data){
             //정상 요청, 응답 시 처리 작업
-            // alert("success "+data.token);
-            // setCookie("jwt",data.token,1);
-            // var jwt = getCookie("jwt");
-            // alert("jwt : "+jwt);
-            $.cookie('jwt1', 'hello');
-            alert($.cookie());
+            alert("success "+data.token);
+            setCookie("jwt",data.token,1);
+            var jwt = getCookie("jwt");
+            alert("jwt : "+jwt);
+            // $.cookie('jwt1', 'hello');
+            // alert($.cookie());
             
         },
         error : function(xhr,status,error) {
