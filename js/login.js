@@ -7,6 +7,44 @@ function getParameter(str_param) {
 
 }
 
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    alert(cname+" / "+cvalue+" / "+exdays);
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  
+  function getCookie(cname) {
+    var name = cname + "=";
+    
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    alert("name : "+decodedCookie);
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  
+  function checkCookie() {
+    var user=getCookie("username");
+    if (user != "") {
+      alert("Welcome again " + user);
+    } else {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) {
+         setCookie("username", user, 30);
+       }
+    }
+  }
+
 function init() {
     alert("hello");
     alert("@ : "+getParameter("name"));
@@ -45,7 +83,12 @@ function login(){
         success: function(data){
             //정상 요청, 응답 시 처리 작업
             alert("success "+data.token);
-           
+            setCookie("jwt",data.token,1);
+            var jwt = getCookie("jwt");
+            alert("jwt : "+jwt);
+            $.cookie('jwt1', 'hello');
+            alert($.cookie());
+            
         },
         error : function(xhr,status,error) {
             alert("error"+status+" / "+error);
