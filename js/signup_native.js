@@ -80,8 +80,11 @@ function ajax_signup(userinfo){
     };
     var json_formData = JSON.stringify(formData);
     console.log(json_formData);
+    var url = baseurl_busan;
+    var path = "/signup";
     $.ajax({
-        url:'http://localhost:8080/signup',
+        // url:'http://localhost:8080/signup',
+        url: (baseurl_busan+path),
         type:'POST',
         async: false, 
         contentType:'application/json',
@@ -248,7 +251,10 @@ function signup() {
     
 }
 function move_login_page(){
-    location.replace("http://localhost:8080/login_after_signup");
+    var url = baseurl_busan;
+    var path = "/login_after_signup";
+    location.replace(url+path);
+    // location.replace("http://localhost:8080/login_after_signup");
     // $.ajax({
     //     url:'http://localhost:8080/login_after_signup',
     //     type:'GET',

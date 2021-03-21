@@ -55,10 +55,19 @@ function init() {
 }
 
 function move_signup_page() {
-  window.location.replace("http://localhost/moze_shop/html/signup_nav.html"); 
+  var url = baseurl_server1;
+  var path = "/moze_shop/html/signup_nav.html";
+  alert(url+path);
+  // var url = baseurl_local;
+  window.location.replace(url+path); 
+  // window.location.replace("http://localhost/moze_shop/html/signup_nav.html"); 
 }
 function move_home_page() {
-    window.location.replace("http://localhost/moze_shop/html/home.html"); 
+  var url = baseurl_server1;
+  var path = "/moze_shop/html/home.html";
+  // var url = baseurl_local;
+    // window.location.replace("http://localhost/moze_shop/html/home.html"); 
+    window.location.replace(baseurl_busan+path); 
   }
 function login(){
     var user = $("#user").val();
@@ -76,7 +85,8 @@ function login(){
     alert(json_formData);
 
     $.ajax({
-        url:'http://localhost:8080/login',
+        // url:'http://localhost:8080/login',
+        url:baseurl_busan+'/login',
         type:'POST',
         async: false, 
         contentType:'application/json',
@@ -100,10 +110,13 @@ function login(){
 }
 
 function google_login(){
+  var url = baseurl_busan;
+  var path = "/redirect_google_login";
     location.href="https://accounts.google.com/o/oauth2/auth?client_id="+
                 "615811997217-prn8q5o8juolfn38efjdot0vb5gni4kg.apps.googleusercontent.com"+
                 "&redirect_uri="+
-                "http://localhost:8080/redirect_google_login"+
+                // "http://localhost:8080/redirect_google_login"+
+                (url+path)+
                 "&response_type=code&scope=email profile openid&approval_prompt=force&access_type=offline";
 }
 
