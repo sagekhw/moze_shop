@@ -45,6 +45,7 @@ function login(){
         success: function(data){
             //정상 요청, 응답 시 처리 작업
             alert("success "+data);
+            alert("@@ : "+data.token+" / "+data[0]);
            
         },
         error : function(xhr,status,error) {
