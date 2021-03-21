@@ -11,7 +11,6 @@ function setCookie(cname,cvalue,exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires=" + d.toGMTString();
-    alert(cname+" / "+cvalue+" / "+exdays);
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
   
@@ -20,7 +19,6 @@ function setCookie(cname,cvalue,exdays) {
     
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
-    alert("name : "+decodedCookie);
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
       while (c.charAt(0) == ' ') {
@@ -59,6 +57,9 @@ function init() {
 function move_signup_page() {
   window.location.replace("http://localhost/moze_shop/html/signup_nav.html"); 
 }
+function move_home_page() {
+    window.location.replace("http://localhost/moze_shop/html/home.html"); 
+  }
 function login(){
     var user = $("#user").val();
     var password = $("#password").val();
@@ -82,13 +83,10 @@ function login(){
         data:json_formData,
         success: function(data){
             //정상 요청, 응답 시 처리 작업
-            alert("success "+data.token);
             setCookie("jwt",data.token,1);
             var jwt = getCookie("jwt");
             alert("jwt : "+jwt);
-            // $.cookie('jwt1', 'hello');
-            // alert($.cookie());
-            
+            move_home_page();
         },
         error : function(xhr,status,error) {
             alert("error"+status+" / "+error);
