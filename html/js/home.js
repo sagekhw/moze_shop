@@ -22,6 +22,11 @@ function setCookie(cname,cvalue,exdays) {
     return "";
   }
 
+function loginStatus(){
+    var str = $("#login_status").text();
+    alert(str);
+}
+
 window.onload = function() {
     // 페이지가 로딩된 후 실행해야 되는 코드를 추가한다.
 
@@ -29,6 +34,6 @@ window.onload = function() {
     
     if(jwt != ""){
         alert(jwt);
-        var str = $("#login_text").text("로그아웃");
+        var str = $("#login_status").text("로그아웃");
     }
 }
