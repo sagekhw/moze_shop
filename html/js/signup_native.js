@@ -84,7 +84,7 @@ function ajax_signup(userinfo){
     var path = "/signup";
     $.ajax({
         // url:'http://localhost:8080/signup',
-        url: (baseurl_busan+busan_auth_port+path),
+        url: (baseurl_busan+path),
         type:'POST',
         async: false, 
         contentType:'application/json',
@@ -253,28 +253,7 @@ function signup() {
 function move_login_page(){
     var url = baseurl_busan;
     var path = "/login_after_signup";
-    location.replace(url+busan_auth_port+path);
-    // location.replace("http://localhost:8080/login_after_signup");
-    // $.ajax({
-    //     url:'http://localhost:8080/login_after_signup',
-    //     type:'GET',
-    //     async: false, 
-    //     // contentType:'application/json',
-    //     // data:json_formData,
-    //     success: function(){
-    //         //정상 요청, 응답 시 처리 작업
-    //         alert("success");
-           
-    //     },
-    //     error : function(xhr,status,error) {
-    //         alert("error"+status+" / "+error);
-    //         //오류 발생 시 처리
-    //     },
-    //     complete:function(data,textStatus) {
-    //         //작업 완료 후 처리
-    //         // alert("complete");
-    //     }
-    // });
+    location.replace(url+path);
 }
 
 window.onload = function() {
