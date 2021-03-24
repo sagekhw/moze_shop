@@ -55,20 +55,16 @@ function init() {
 }
 
 function move_signup_page() {
-  var url = baseurl_server1;
-  var path = "/moze_shop/html/signup_nav.html";
+  var url = baseurl_web;
+  var path = "/signup_nav.html";
   alert(url+path);
-  // var url = baseurl_local;
   window.location.replace(url+path); 
-  // window.location.replace("http://localhost/moze_shop/html/signup_nav.html"); 
 }
 function move_home_page() {
-  var url = baseurl_server1;
-  var path = "/moze_shop/html/home.html";
-  // var url = baseurl_local;
-    // window.location.replace("http://localhost/moze_shop/html/home.html"); 
-    window.location.replace(url+path); 
-  }
+  var url = baseurl_web;
+  var path = "/home.html";
+  window.location.replace(url+path); 
+}
 function login(){
     var user = $("#user").val();
     var password = $("#password").val();
@@ -86,7 +82,7 @@ function login(){
 
     $.ajax({
         // url:'http://localhost:8080/login',
-        url:baseurl_busan+busan_auth_port+'/login',
+        url:baseurl_busan+'/login',
         type:'POST',
         async: false, 
         contentType:'application/json',
@@ -116,7 +112,7 @@ function google_login(){
                 "615811997217-prn8q5o8juolfn38efjdot0vb5gni4kg.apps.googleusercontent.com"+
                 "&redirect_uri="+
                 // "http://localhost:8080/redirect_google_login"+
-                (url+busan_auth_port+path)+
+                (url+path)+
                 "&response_type=code&scope=email profile openid&approval_prompt=force&access_type=offline";
 }
 
