@@ -5,6 +5,6 @@ $("#oauthBtn").click(function(){
     "615811997217-prn8q5o8juolfn38efjdot0vb5gni4kg.apps.googleusercontent.com"+
     "&redirect_uri="+
     // "http://localhost:8080/redirect" +
-    (url+path) +
+    (url+busan_auth_port+path) +
     "&response_type=code&scope=email profile openid&approval_prompt=force&access_type=offline";
 });

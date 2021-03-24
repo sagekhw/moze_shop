@@ -67,7 +67,7 @@ function move_home_page() {
   var path = "/moze_shop/html/home.html";
   // var url = baseurl_local;
     // window.location.replace("http://localhost/moze_shop/html/home.html"); 
-    window.location.replace(baseurl_busan+path); 
+    window.location.replace(url+path); 
   }
 function login(){
     var user = $("#user").val();
@@ -86,7 +86,7 @@ function login(){
 
     $.ajax({
         // url:'http://localhost:8080/login',
-        url:baseurl_busan+'/login',
+        url:baseurl_busan+busan_auth_port+'/login',
         type:'POST',
         async: false, 
         contentType:'application/json',
@@ -116,7 +116,7 @@ function google_login(){
                 "615811997217-prn8q5o8juolfn38efjdot0vb5gni4kg.apps.googleusercontent.com"+
                 "&redirect_uri="+
                 // "http://localhost:8080/redirect_google_login"+
-                (url+path)+
+                (url+busan_auth_port+path)+
                 "&response_type=code&scope=email profile openid&approval_prompt=force&access_type=offline";
 }
 
