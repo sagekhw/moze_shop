@@ -78,6 +78,7 @@ header > .navigation-center > ul > li > a {
     text-decoration: none;
     font-family: 'Nanum Pen Script', cursive;
     font-size: 30px;
+    
     /* border : 1px solid black; */
 }
 /* HEADER : right */
@@ -98,6 +99,7 @@ header > .navigation-right > ul > li > a {
     text-decoration: none;
     font-family: 'Nanum Pen Script', cursive;
     font-size: 20px;
+    cursor: pointer;
     /* border : 1px solid black; */
 }
 /* site-name : ALL */
