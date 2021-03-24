@@ -21,10 +21,27 @@ function setCookie(cname,cvalue,exdays) {
     }
     return "";
   }
+  function delCookie(cname,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + ";" + expires + ";path=/;";
+  }
 
+function move_login_page() {
+    var url = baseurl_web;
+    var path = "/login.html";
+    location.replace(url+path);
+}
 function loginStatus(){
     var str = $("#login_status").text();
     alert(str);
+    if(str == "로그아웃"){
+        delCookie("jwt",1);
+        $("#login_status").text("로그인");
+    }else{
+        move_login_page();
+    }
 }
 
 window.onload = function() {
@@ -33,7 +50,7 @@ window.onload = function() {
     var jwt = getCookie("jwt");
     
     if(jwt != ""){
-        alert(jwt);
+        // alert(jwt);
         var str = $("#login_status").text("로그아웃");
     }
 }

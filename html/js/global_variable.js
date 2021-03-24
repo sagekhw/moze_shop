@@ -33,7 +33,13 @@ function setCookie(cname,cvalue,exdays) {
     }
     return "";
   }
-  
+  function delCookie(cname,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + ";" + expires + ";path=/;";
+  }
+
   function checkCookie() {
     var user=getCookie("username");
     if (user != "") {
