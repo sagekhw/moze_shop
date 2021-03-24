@@ -80,11 +80,11 @@ function ajax_signup(userinfo){
     };
     var json_formData = JSON.stringify(formData);
     console.log(json_formData);
-    var url = baseurl_busan;
+    var url = baseurl_server1;
     var path = "/signup";
     $.ajax({
         // url:'http://localhost:8080/signup',
-        url: (baseurl_busan+path),
+        url: (url+path),
         type:'POST',
         async: false, 
         contentType:'application/json',
@@ -251,7 +251,7 @@ function signup() {
     
 }
 function move_login_page(){
-    var url = baseurl_busan;
+    var url = baseurl_server1;
     var path = "/login_after_signup";
     location.replace(url+path);
 }

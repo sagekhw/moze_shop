@@ -82,7 +82,7 @@ function login(){
 
     $.ajax({
         // url:'http://localhost:8080/login',
-        url:baseurl_busan+'/login',
+        url:baseurl_server1+'/login',
         type:'POST',
         async: false, 
         contentType:'application/json',
@@ -106,7 +106,7 @@ function login(){
 }
 
 function google_login(){
-  var url = baseurl_busan;
+  var url = baseurl_server1;
   var path = "/redirect_google_login";
     location.href="https://accounts.google.com/o/oauth2/auth?client_id="+
                 "615811997217-prn8q5o8juolfn38efjdot0vb5gni4kg.apps.googleusercontent.com"+
