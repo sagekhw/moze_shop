@@ -91,7 +91,7 @@ function ajax_signup(userinfo){
         data:json_formData,
         success: function(data){
             //정상 요청, 응답 시 처리 작업
-            alert("success");
+            // alert("success");
             if(data){
                 move_login_page();
             }else{

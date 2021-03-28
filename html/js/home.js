@@ -35,7 +35,7 @@ function move_login_page() {
 }
 function loginStatus(){
     var str = $("#login_status").text();
-    alert(str);
+    // alert(str);
     if(str == "로그아웃"){
         delCookie("jwt",1);
         $("#login_status").text("로그인");

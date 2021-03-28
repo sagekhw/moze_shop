@@ -34,7 +34,7 @@ function setCookie(cname,cvalue,exdays) {
   function checkCookie() {
     var user=getCookie("username");
     if (user != "") {
-      alert("Welcome again " + user);
+      // alert("Welcome again " + user);
     } else {
        user = prompt("Please enter your name:","");
        if (user != "" && user != null) {
@@ -44,8 +44,8 @@ function setCookie(cname,cvalue,exdays) {
   }
 
 function init() {
-    alert("hello");
-    alert("@ : "+getParameter("name"));
+    // alert("hello");
+    // alert("@ : "+getParameter("name"));
     if (getParameter("name") != null) {
         alert(getParameter("name"));
     }
@@ -57,7 +57,7 @@ function init() {
 function move_signup_page() {
   var url = baseurl_web;
   var path = "/signup_nav.html";
-  alert(url+path);
+  // alert(url+path);
   window.location.replace(url+path); 
 }
 function move_home_page() {
@@ -78,7 +78,7 @@ function login(){
         password : password,
     };
     var json_formData = JSON.stringify(formData);
-    alert(json_formData);
+    // alert(json_formData);
 
     $.ajax({
         // url:'http://localhost:8080/login',
