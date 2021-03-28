@@ -193,6 +193,7 @@
     }
 
     function s3files(){
+        $("#fileList").empty();
         
 
         $.ajax({
