@@ -79,7 +79,7 @@ function login(){
     };
     var json_formData = JSON.stringify(formData);
     // alert(json_formData);
-
+    alert(baseurl_server1+'/login');
     $.ajax({
         // url:'http://localhost:8080/login',
         url:baseurl_server1+'/login',
