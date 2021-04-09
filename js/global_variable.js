@@ -1,6 +1,6 @@
 var baseurl_local = "http://localhost";
 var baseurl_server1 = "http://server1.sagekhw.com";
-var baseurl_web = "http://moze.sagekhw.com";
+var baseurl_web = "http://sagekhw.net/moze_shop";
 
 function getParameter(str_param) {
     const queryString = window.location.search;
